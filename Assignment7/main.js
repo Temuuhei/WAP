@@ -41,3 +41,58 @@ let group = {
 };
 
 group.showList();
+
+/**
+ * =========================== Below is for self study ==========================
+ * Options 1: Using only Lambda Expression
+ * 
+ * change the below code
+ * this.students.forEach(function(student) {
+ *           console.log(this.title + ": " + student);
+ *       });
+ * with lambda expression which the "this" will be refering to the outer
+ * method's(showList: function()), outer lexical environment      
+ */
+
+let group1 = {
+    title : "Our Group",
+    students : ["John", "Pete", "Alice"],
+
+    showList: function() {
+        this.students.forEach(student => console.log(this.title + " : " + student));
+    },
+    //  Using "self pattern"
+    showList1 : function(){
+        self = this;
+        this.students.forEach(function(student) {
+            console.log(self.title + " : " + student);
+        })
+    },
+    showList2 : function() {
+        self = this;
+        let f = student => student => console.log(self.title + " : " + student);
+        this.students.forEach(f.call(this));
+    },
+    // Optional 3 With "bind" and lambda expression
+    showList3 : function() {
+        let f = student => console.log(this.title + " : " + student);
+        this.students.forEach(f.bind(this));
+    },
+    // Optional 4 With "call" and lambda expression
+    showList4 : function() {
+        let f = student => student => console.log(this.title + " : " + student);
+        this.students.forEach(f.call(this));
+    },
+    // Optional 5 With "apply" and lambda expression
+    showList5 : function() {
+        let f = student => student => console.log(this.title + " : " + student);
+        this.students.forEach(f.apply(this));
+    }
+};
+
+group1.showList();
+group1.showList1();
+group1.showList2();
+group1.showList3();
+group1.showList4();
+group1.showList5();
