@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <script src="./Question1.js"></script>
+    <script src="./Question2.js"></script>
+    <script src="./Question2.1.js"></script>
+</header>
+
+<body>
+    <h1>
+        Homework Assignment 9
+    </h1>
+    <div>
+        <h2>Question 1:</h2>
+        Use class syntax to create LinkedList. Methods below:
+        <br>
+        1) add(value)
+        <br>
+        2) remove(value)
+        <br>
+        3) print()
+        <br>
+        You’re allowed to add other methods if it’s necessary.
+        After completion, we can call methods as below and see the results in console if call print().
+        <br>
+        linkedlist.add(1);
+        <br>
+        linkedlist.add(2);
+        <br>
+        linkedlist.add(3);
+        <br>
+        linkedlist.print(); //in the console, you should see: LinkedList{1,2,3}
+        <br>
+        linkedlist.remove(3);
+        <br>
+        linkedlist.print(); //in the console, you should see: LinkedList{1,3}
+    </div>
+    <div>
+        <h2>Question 2:</h2>
+        This is a quiz system which allows students to take quiz, get each student's quiz score and
+        compute average score of students.
+        You need to use constructor functions or class syntax to implement Student, Question and Quiz
+        constructor function/class Student:
+        properties:
+        studentId: a unique student id
+        answers: holds an array that records the student's answers for the questions.
+        method: addAnswer(question) - add student's question(id, answer) to answers array.
+        constructor function/class
+        <br>
+        Question:
+        <br>
+        properties:
+        <br>
+        qid: unique quesiton id
+        <br>
+        answer: hold quiz correct answer or student's answermethod: checkAnswer(answer) - used to check if student's
+        answer is correct
+        constructor function/class Quiz:
+        properties:
+        <br>
+        questions: It's a Map which holds question id and correct answers. The key is question id, the
+        value is the correct answer for this question
+        <br>
+        students: an array holds all students
+        methods:
+        <br>
+        scoreStudent(sid), computes the quiz score for this student
+        getAverageScore(), computes the average score over all students
+        After you complete the Question, Student and Quiz constructor functions, we may use the
+        system as below:
+        Your system should return the correct result for getAverageScore() and scoreStudent(sid) as the
+        expected result.
+        <br>
+        const student1 = new Student(10);
+        <br>
+        student1.addAnswer(new Question(2, 'a'));
+        <br>
+        student1.addAnswer(new Question(3, 'b'));
+        <br>
+        student1.addAnswer(new Question(1, 'b'));
+        <br>
+        const student2 = new Student(11);
+        <br>
+        student2.addAnswer(new Question(3, 'b'));
+        <br>
+        student2.addAnswer(new Question(2, 'a'));
+        <br>
+        student2.addAnswer(new Question(1, 'd'));
+        <br>
+        const students = [student1, student2];
+        <br>
+        const questions =[new Question(1, 'b'), new Question(2, 'a'), new
+        <br>
+        Question(3, 'b')];
+        <br>
+        const quiz = new Quiz(questions, students);
+        <br>
+        let scoreforStudent10 = quiz.scoreStudentBySid(10);
+        <br>
+        console.log(scoreforStudent10); //Expected Result: 3
+        <br>
+        let scoreforStudent11 = quiz.scoreStudentBySid(11);
+        <br>
+        console.log(scoreforStudent11); //Expected Result: 2
+        <br>
+        let average = quiz.getAverageScore();
+    </div>
+</body>
+
+</html>
