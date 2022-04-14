@@ -3,7 +3,7 @@ dnsPromises = dns.promises;
 
 async function test() {
   let data = await dnsPromises.lookup(("www.miu.edu"));
-  console.log(data);
+  console.log(data.address);
 }
 
 test();
