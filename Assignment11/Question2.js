@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
+fs.createReadStream(path.join(__dirname, 'a.txt')).pipe(fs.createWriteStream(path.join(__dirname, 'b.txt')));
+// fs.createReadStream(__dirname, 'a.txt', 'utf-8').pipe(fs.createWriteStream(__dirname, 'b.txt','utf-8'));
 // 1 st Option used express
 // const express = require('express');
 // const app = express();
