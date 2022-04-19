@@ -1,0 +1,15 @@
+{
+  "name": "server-mediaplayer",
+  "version": "1.0.0",
+  "description": "Temka's project on WAP",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Tr1um",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
