@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controllerSongs = require('../conroller/songController');
+const controllerSongs = require('../controller/songController');
 
 router.get('/all/', controllerSongs.getSongs);
 router.get('/all/:songTitle', controllerSongs.getSongsByTitle);
