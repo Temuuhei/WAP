@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com">
     <link rel="stylesheet" href="./resourses/main.css">
+    <script src="resourses/main.js"></script>
     <div>
-        <!-- <img id="profile-pic" src="../../images/Temuujin.jpg" alt="Tr1um" /> -->
+        <img id="profile-pic" src="../../images/Temuujin.jpg" alt="Tr1um" />
     </div>
-    <div style= 'text-align: right; '>
-        <input id = "username" placeholder = "Username" type = "text" required = "true"/>
-        <input id = "password" placeholder = "password" required = "true"/>
-        <button id = "login">Login</button>
+    <div style='text-align: right;'>
+        <div>
+            <input id="username" placeholder="Username" type="text" required="true" />
+            <input id="password" placeholder="password" type="password" required="true" />
+            <p id = "unvalid" hidden>Wrong Password or Username !</p>
+            <button id="loginBtn" type="submit">Login</button>
+        </div>
+        <button id="logoutBtn" type="submit" style='text-align: right; position: absolute; top: 15px; right: 15px;'hidden>Logout</button>
     </div>
+
+
     <hr>
 </head>
+
 <body>
-    <h1>HELLOO TEMKA</h1>
+    <h1 id="wlc" >Welcome to Music Website</h1>
+    <div id="main-container">
+        <p id="msg" hidden></p>
+        
+        <div id="div_songs" style = "text-align: center;">
+            <table id="tableSongs" border="1">
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Action</td>
+                </tr>
+            </table>    
+        </div>
+
+        <div id="div_playlist">
+            <table id="tablePlaylist" border="1">
+                <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Action</td>
+                </tr>
+            </table>    
+        </div>
+
+
+        <div>
+            <audio id="a1" src="music/1.mp3" controls></audio>
+            </div>
+    </div>
+    </div>
 </body>
+
 </html>
+
