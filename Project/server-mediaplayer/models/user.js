@@ -10,7 +10,7 @@ usersList = [{
     "password": " "
 }];
 
-loginLog = [];
+// loginLog = [];
 
 // let uid = 2;
 
@@ -34,8 +34,8 @@ module.exports = class User {
                 const token = jwt.sign(resultOfLogin, 
                     'key', {expiresIn: 3600});
                     resultOfLogin.token = token;
-                loginLog.push({id : usersList[isExistUser].id, username:this.username, date : new Date().toString()});
-                console.log(loginLog);
+                // loginLog.push({id : usersList[isExistUser].id, username:this.username, date : new Date().toString()});
+                // console.log(loginLog);
                 return resultOfLogin;
             }else {
                 console.log('Wrong Password or Username');

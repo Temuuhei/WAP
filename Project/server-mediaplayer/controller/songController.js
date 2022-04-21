@@ -1,11 +1,13 @@
 const Songs = require('../models/songs');
+const jwtDecode = require('jwt-decode');
 
 module.exports.getSongs = (req, res, next) => {
     res.status(200).json(Songs.getSongs());
 }
 
 module.exports.getMyList = (req, res, next) => {
-    res.status(200).json(Songs.getMySongs());
+    let obj = jwtDecode(req.headers.authorization.split(' ')[1]);
+    res.status(200).json(Songs.getMySongs(obj.id));
 }
 
 module.exports.getSongsByTitle = (req, res, next) => {
@@ -15,7 +17,8 @@ module.exports.getSongsByTitle = (req, res, next) => {
 
 module.exports.getInterest = (req, res, next) => {
     let songId = req.params.songId;
-    res.status(200).json(Songs.addMyPlaylist(songId));
+    let obj = jwtDecode(req.headers.authorization.split(' ')[1]);
+    res.status(200).json(Songs.addMyPlaylist(songId,obj.id));
 }
 
 module.exports.saveSong = (req, res, next) => {
@@ -25,6 +28,7 @@ module.exports.saveSong = (req, res, next) => {
 }
 
 module.exports.deleteSong = (req, res, next) => {
-    res.status(200).json(Songs.delete(req.params.songId));
+    let obj = jwtDecode(req.headers.authorization.split(' ')[1]);
+    res.status(200).json(Songs.delete(req.params.songId, obj.id));
 }
 
